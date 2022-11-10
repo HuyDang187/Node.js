@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
     const path = req.url.replace(/\/?(?:\?.*)?$/,
         '').toLowerCase()
     switch (path) {
-        case '':
+        case '/home':
             serveStaticFile(res, '/public/home.html', 'text/html')
             break
         case '/blog':
@@ -26,9 +26,13 @@ const server = http.createServer((req, res) => {
             break
         case '/product':
             serveStaticFile(res, 'public/product.html', 'text/html')
+            break
         case '/img/logo.png':
             serveStaticFile(res, '/public/img/logo.png',
                 'image/png')
+            break
+        case '/img/logo1.png':
+            serveStaticFile(res, '/public/img/logo1.png', 'image/png')
             break
         default:
             serveStaticFile(res, '/public/404.html', 'text/html',
